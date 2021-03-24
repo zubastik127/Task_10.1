@@ -39,6 +39,27 @@ public class Main {
             return arr;
         };
 
+        ArrayCreate custom4 = (si, in) -> {
+            Integer[] arr = new Integer[si];
+            for (int i = 0; i < si; i++) {
+                if (i % 2 == 0) {
+                    arr[i] = si - i;
+                } else {
+                    arr[i] = si + in;
+                }
+            }
+            return arr;
+        };
+
+        ArrayCreate custom5 = (si, in) -> {
+            Integer[] arr = new Integer[si];
+            for (int i = 0; i < si; i++) {
+                arr[i] = si * i - in;
+            }
+            return arr;
+        };
+
+
         Scanner s = new Scanner(System.in);
         System.out.print("Введите число: ");
         int input = s.nextInt();
@@ -48,9 +69,16 @@ public class Main {
         Integer[] myArray1 = getFilledArray(size, input, custom1);
         Integer[] myArray2 = getFilledArray(size, input, custom2);
         Integer[] myArray3 = getFilledArray(size, input, custom3);
+        //число = для чётного индекса <размер массива минус индекс>, для нечётного <размер массива плюс модификатор>
+        Integer[] myArray4 = getFilledArray(size, input, custom4);
+        //число = размер массива помноженный на индекс минус идентификатор
+        Integer[] myArray5 = getFilledArray(size, input, custom5);
         System.out.println(Arrays.toString(myArray1));
         System.out.println(Arrays.toString(myArray2));
         System.out.println(Arrays.toString(myArray3));
+        System.out.println("-------------------------------");
+        System.out.println(Arrays.toString(myArray4));
+        System.out.println(Arrays.toString(myArray5));
 
         s.close();
     }
